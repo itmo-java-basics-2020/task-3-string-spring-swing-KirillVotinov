@@ -1,7 +1,5 @@
 package ru.itmo.java;
 
-import java.util.Arrays;
-
 public class Task3 {
 
     /**
@@ -67,14 +65,14 @@ public class Task3 {
             return 0;
         }
 
-        String s = input.toLowerCase();
-        int r = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == 'a' || s.charAt(i) == 'b') {
-                r++;
+        String LowerString = input.toLowerCase();
+        int CountOfAB = 0;
+        for (int i = 0; i < LowerString.length(); i++) {
+            if (LowerString.charAt(i) == 'a' || LowerString.charAt(i) == 'b') {
+                CountOfAB++;
             }
         }
-        return 100 * r / s.length();
+        return 100 * CountOfAB / LowerString.length();
     }
 
     /**
@@ -99,19 +97,19 @@ public class Task3 {
         if (input == null || input.length() == 0)
             return "";
 
-        StringBuilder str = new StringBuilder();
-        int c = 1;
+        StringBuilder CodeStr = new StringBuilder();
+        int CountOfLastLetter = 1;
         for (int i = 1; i < input.length(); i++) {
             if (input.charAt(i) != input.charAt(i - 1)) {
-                str.append(input.charAt(i - 1)).append(c);
-                c = 1;
+                CodeStr.append(input.charAt(i - 1)).append(CountOfLastLetter);
+                CountOfLastLetter = 1;
             }
             else
-                c++;
+                CountOfLastLetter++;
         }
 
-        str.append(input.charAt(input.length() - 1)).append(c);
-        return str.toString();
+        CodeStr.append(input.charAt(input.length() - 1)).append(CountOfLastLetter);
+        return CodeStr.toString();
     }
 
     /**
@@ -122,7 +120,7 @@ public class Task3 {
      * isPermutation("abc", "Abc") == false;
      */
     boolean isPermutation(String one, String two) {
-        if (one == null || two == null || one.length() != two.length() || one == "" || two == "")
+        if (one == null || two == null || one.length() != two.length() || one.equals("") || two.equals(""))
             return false;
 
         int[] alphabet = new int[256];
@@ -130,7 +128,6 @@ public class Task3 {
             alphabet[one.charAt(i)]++;
             alphabet[two.charAt(i)]--;
         }
-
 
         for (int v : alphabet)
             if (v != 0)
@@ -148,7 +145,7 @@ public class Task3 {
     boolean isUniqueString(String s) {
         if (s == null)
             return false;
-        if (s == "")
+        if (s.equals(""))
             return false;
         int[] alphabet = new int[256];
         for (int i = 0; i < s.length(); i++) {
@@ -168,14 +165,12 @@ public class Task3 {
         if (m == null || m[0].length == 0)
             return new int[][]{{}, {}};
 
-
-
-        int[][] trm = new int[m[0].length][m[0].length];
+        int[][] TranspM = new int[m[0].length][m[0].length];
         for (int i = 0; i < m[0].length; i++)
             for (int j = 0; j < m[0].length; j++)
-                trm[j][i] = m[i][j];
+                TranspM[j][i] = m[i][j];
 
-        return trm;
+        return TranspM;
     }
 
     /**
@@ -194,11 +189,11 @@ public class Task3 {
         if (separator == null)
             separator = ' ';
 
-        StringBuilder res = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < inputStrings.length - 1; i++)
-            res.append(inputStrings[i]).append(separator);
+            result.append(inputStrings[i]).append(separator);
 
-        return res.append(inputStrings[inputStrings.length - 1]).toString();
+        return result.append(inputStrings[inputStrings.length - 1]).toString();
     }
 
     /**
@@ -208,8 +203,7 @@ public class Task3 {
         if (inputStrings == null || prefix == null)
             return 0;
         int count = 0;
-        for(int i = 0; i < inputStrings.length; ++i)
-        {
+        for(int i = 0; i < inputStrings.length; ++i) {
             if (inputStrings[i].startsWith(prefix))
                 count++;
         }
