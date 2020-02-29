@@ -23,9 +23,9 @@ public class Task3 {
     /**
      * Напишите функцию, которая принимает массив целых чисел и возвращает максимальное значение произведения двух его элементов.
      * Если массив состоит из одного элемента, то функция возвращает этот элемент.
-     *
+     * <p>
      * Если входной массив пуст или равен null - вернуть 0
-     *
+     * <p>
      * Пример: 2 4 6 -> 24
      */
     int getMaxProduct(int[] inputArray) {
@@ -57,7 +57,7 @@ public class Task3 {
      * Напишите функцию, которая вычисляет процент символов 'A' и 'B' (латиница) во входной строке.
      * Функция не должна быть чувствительна к регистру символов.
      * Результат округляйте путем отбрасывания дробной части.
-     *
+     * <p>
      * Пример: acbr -> 50
      */
     int getABpercentage(String input) {
@@ -103,8 +103,7 @@ public class Task3 {
             if (input.charAt(i) != input.charAt(i - 1)) {
                 CodeStr.append(input.charAt(i - 1)).append(CountOfLastLetter);
                 CountOfLastLetter = 1;
-            }
-            else
+            } else
                 CountOfLastLetter++;
         }
 
@@ -158,7 +157,7 @@ public class Task3 {
 
     /**
      * Напишите функцию, которая транспонирует матрицу. Только квадратные могут быть на входе.
-     *
+     * <p>
      * Если входной массив == null - вернуть пустой массив
      */
     int[][] matrixTranspose(int[][] m) {
@@ -176,9 +175,9 @@ public class Task3 {
     /**
      * Напиишите функцию, принимающую массив строк и символ-разделитель,
      * а возвращает одну строку состоящую из строк, разделенных сепаратором.
-     *
+     * <p>
      * Запрещается пользоваться функций join
-     *
+     * <p>
      * Если сепаратор == null - считайте, что он равен ' '
      * Если исходный массив == null -  вернуть пустую строку
      */
@@ -203,7 +202,7 @@ public class Task3 {
         if (inputStrings == null || prefix == null)
             return 0;
         int count = 0;
-        for(int i = 0; i < inputStrings.length; ++i) {
+        for (int i = 0; i < inputStrings.length; ++i) {
             if (inputStrings[i].startsWith(prefix))
                 count++;
         }
